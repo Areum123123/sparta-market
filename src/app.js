@@ -1,6 +1,6 @@
-import express from "express";
-import connect from "./schemas/index.js";
-import productRouter from "./routers/products.router.js";
+import express from 'express';
+import connect from './schemas/index.js';
+import productRouter from './routers/products.router.js';
 
 const app = express();
 const PORT = 3000;
@@ -8,16 +8,16 @@ const PORT = 3000;
 connect();
 
 app.use(express.json());
-app.use(express.urlencoded({ extended : true}));
+app.use(express.urlencoded({ extended: true }));
 
-const router = express.Router()
+const router = express.Router();
 
 router.get('/', (req, res) => {
-    return res.json({ message: 'Hi!' });
-})
+  return res.json({ message: 'Hi!' });
+});
 
-app.use('/',[router, productRouter]) 
+app.use('/', [router, productRouter]);
 
-app.listen(PORT, ()=>{
-    console.log(PORT, '포트로 서버가 열렸어요!');
-})
+app.listen(PORT, () => {
+  console.log(PORT, '포트로 서버가 열렸어요!');
+});
