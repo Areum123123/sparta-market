@@ -21,7 +21,7 @@ const productSchema = new mongoose.Schema({
   },
   doneAt: {
     type: Date,
-    required: false, //상품목록 생성일시.. 를 위해.
+    required: false, 
   },
   status: {
     type: String,

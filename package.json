@@ -16,7 +16,5 @@
   "scripts": {
     "dev": "nodemon src/app.js",
     "format": "prettier --write src/*.js src/**/*.js"
-
-
   }
 }

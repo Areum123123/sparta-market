@@ -2,11 +2,11 @@
 import express from 'express';
 import Products from '../schemas/product.schema.js';
 const router = express.Router();
-
+//개발필수 (상품생성 api, 상품목록조회,상품상세조회,상품수정,상품삭제 구현)
 /* 1.상품 생성 API*/
 
 router.post('/products', async (req, res) => {
-  const { name, description, manager, password } = req.body; //req.body 로 전달 받는다.
+  const { name, description, manager, password } = req.body; 
   try {
     if (!name || !description || !manager || !password) {
       return res
@@ -15,9 +15,7 @@ router.post('/products', async (req, res) => {
     }
     const existProduct = await Products.findOne({ name }).exec(); // 입력된 이름을 찾게 된다면
     if (existProduct) {
-      return res
-        .status(400)
-        .json({ errorMessage: '이미 등록 된 상품입니다.' });
+      return res.status(400).json({ errorMessage: '이미 등록 된 상품입니다.' });
     }
     const createProducts = await Products.create({
       name,
@@ -31,26 +29,32 @@ router.post('/products', async (req, res) => {
   } catch (err) {
     return res
       .status(500)
-      .json({ errorMessage: '예상치 못한 에러가 발생했습니다. 관리자에게 문의해 주세요.' });
+      .json({
+        errorMessage:
+          '예상치 못한 에러가 발생했습니다. 관리자에게 문의해 주세요.',
+      });
   }
 });
 
 /*2.상품목록 조회 api  get localhost:3000/products*/
 router.get('/products', async (req, res) => {
-  try { 
+  try {
     const products = await Products.find({}, '-password')
       .sort('-doneAt')
       .exec();
 
-      if(!products){
-        return res.status(200).json([]);
-      }
+    if (!products) {
+      return res.status(200).json([]);
+    }
 
     return res.status(200).json({ products });
   } catch (err) {
     return res
       .status(500)
-      .json({ errorMessage: '예상치 못한 에러가 발생했습니다. 관리자에게 문의해 주세요.' });
+      .json({
+        errorMessage:
+          '예상치 못한 에러가 발생했습니다. 관리자에게 문의해 주세요.',
+      });
   }
 });
 
@@ -59,17 +63,22 @@ router.get('/products', async (req, res) => {
 router.get('/products/:id', async (req, res) => {
   const { id } = req.params;
   try {
-    const searchProduct = await Products.findById(id, '-password').exec(); //파람스로 들어오는 아이디 Producs 에서 찾기
+    const searchProduct = await Products.findById(id, '-password').exec(); 
 
     if (!searchProduct) {
-      return res.status(400).json({ errorMessage: '상품이 존재하지 않습니다.' });
+      return res
+        .status(400)
+        .json({ errorMessage: '상품이 존재하지 않습니다.' });
     }
 
     return res.status(200).json({ searchProduct });
   } catch (err) {
     return res
       .status(500)
-      .json({ errorMessage: '예상치 못한 에러가 발생했습니다. 관리자에게 문의해 주세요.' });
+      .json({
+        errorMessage:
+          '예상치 못한 에러가 발생했습니다. 관리자에게 문의해 주세요.',
+      });
   }
 });
 
@@ -92,7 +101,7 @@ router.put('/products/:id', async (req, res) => {
         .json({ errorMessage: '비밀번호가 일치하지 않습니다.' });
     }
 
-    //중복된 이름으로 수정이 될 수 없게.
+    //중복된 이름으로 수정 불가.
     if (name !== fixTarget.name) {
       const existingProduct = await Products.findOne({ name }).exec();
       if (existingProduct) {
@@ -116,7 +125,10 @@ router.put('/products/:id', async (req, res) => {
   } catch (err) {
     return res
       .status(500)
-      .json({ errorMessage: '예상치 못한 에러가 발생했습니다. 관리자에게 문의해 주세요.' });
+      .json({
+        errorMessage:
+          '예상치 못한 에러가 발생했습니다. 관리자에게 문의해 주세요.',
+      });
   }
 });
 
@@ -144,7 +156,10 @@ router.delete('/products/:id', async (req, res) => {
   } catch (err) {
     return res
       .status(500)
-      .json({ errorMessage: '예상치 못한 에러가 발생했습니다. 관리자에게 문의해 주세요.' });
+      .json({
+        errorMessage:
+          '예상치 못한 에러가 발생했습니다. 관리자에게 문의해 주세요.',
+      });
   }
 });
 
