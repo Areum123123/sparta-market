@@ -16,14 +16,16 @@
 | 상품 삭제(D)  | DELETE   | /products/:id |
 
 
-##상품생성
-request :
+## 상품생성
 
-{
-    "name": "빼빼로ㄹ",
-    "description": "빼빼로 데이는 11월 11일 이다.",
-    "manager": "이무기",
-    "password": "1234"
+### Request
+
+```json
+{ 
+    "name": "빼빼로ㄹ", 
+    "description": "빼빼로 데이는 11월 11일 이다.", 
+    "manager": "이무기", 
+    "password": "1234" 
 }
 
 response:
