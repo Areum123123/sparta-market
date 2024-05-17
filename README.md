@@ -16,16 +16,29 @@
 | 상품 삭제(D)  | DELETE   | /products/:id |
 
 
-##상품 생성
-| request |
-|---------|
-| { |
-|     "name": "빼빼로ㄹ", |
-|     "description": "빼빼로 데이는 11월 11일 이다.", |
-|     "manager": "이무기", |
-|     "password": "1234" |
-| } |
+##상품생성
+request :
 
+{
+    "name": "빼빼로ㄹ",
+    "description": "빼빼로 데이는 11월 11일 이다.",
+    "manager": "이무기",
+    "password": "1234"
+}
+
+response:
+{
+    "createProducts": {
+        "name": "빼빼로ㄹ",
+        "description": "빼빼로 데이는 11월 11일 이다.",
+        "manager": "이무기",
+        "password": "1234",
+        "doneAt": "2024-05-16T23:50:43.751Z",
+        "status": "FOR_SALE",
+        "_id": "66469bd307a7a2865919540d",
+        "__v": 0
+    }
+}
 
 
 
