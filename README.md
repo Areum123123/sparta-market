@@ -31,7 +31,7 @@ node app.js로는  mongoDB 연결이 안되는 문제 발생.
 
 ```json
 
-##상품생성
+##상품생성(/products )
 
 //request
 { 
@@ -57,7 +57,7 @@ node app.js로는  mongoDB 연결이 안되는 문제 발생.
 }
 
 
-##상품 수정(name, description, manager, status 수정가능 // 이름중복 x)
+##상품 수정(/products/:id  || name, description, manager, status 수정가능 || 이름중복 x)
 
 //request
 {
