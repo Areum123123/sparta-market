@@ -4,7 +4,7 @@
 
 ---
 
-##문제점
+##과제할때 문제였던점.
 
 -app.js와 .env 가 같은 디렉토리안에 있지 않아서 yarn dev 로는 mongoDB 연결이 되는데
 node app.js로는  mongoDB 연결이 안되는 문제 발생.
