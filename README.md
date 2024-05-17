@@ -5,12 +5,16 @@
 
 ##API 명세서
 
-설명                 Method            URL
-상품생성(C)            Post             /products
-상품목록조회(R)         Get              /products
-상품상세조회(R)         Get              /products/:id
-상품 수정(U)           Put              /products/:id
-상품 삭제(D)           Delete           /products/:id
+## API 명세서
+
+| 설명         | Method   |    URL        |
+|-------------|----------|---------------|
+| 상품생성(C)   | POST     | /products     |
+| 상품목록조회(R)| GET      | /products     |
+| 상품상세조회(R)| GET      | /products/:id |
+| 상품 수정(U)  | PUT      | /products/:id |
+| 상품 삭제(D)  | DELETE   | /products/:id |
+
 
 ##문제점
 
