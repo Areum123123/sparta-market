@@ -2,6 +2,16 @@
 
 내배캠 장터 백엔드 서버 만들기
 
+
+##API 명세서
+
+설명                 Method            URL
+상품생성(C)            Post             /products
+상품목록조회(R)         Get              /products
+상품상세조회(R)         Get              /products/:id
+상품 수정(U)           Put              /products/:id
+상품 삭제(D)           Delete           /products/:id
+
 ##문제점
 
 -app.js와 .env 가 같은 디렉토리안에 있지 않아서 yarn dev 로는 mongoDB 연결이 되는데
