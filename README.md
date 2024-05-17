@@ -5,3 +5,4 @@
 -app.js와 .env 가 같은 디렉토리안에 있지 않아서
 yarn dev 로는 mongoDB 연결이 되는데
 node app.js로는  mongoDB 연결이 안되었음.
+옮겨줘야합니다.
