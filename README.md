@@ -23,11 +23,14 @@ node app.js로는  mongoDB 연결이 안되는 문제 발생.
 | 상품 삭제(D)  | DELETE   | /products/:id |
 
 
-## 상품생성
 
-### Request
+### Request & response
 
 ```json
+
+##상품생성
+
+//request
 { 
     "name": "빼빼로ㄹ", 
     "description": "빼빼로 데이는 11월 11일 이다.", 
@@ -48,6 +51,26 @@ node app.js로는  mongoDB 연결이 안되는 문제 발생.
         "_id": "66469bd307a7a2865919540d",
         "__v": 0
     }
+}
+
+
+##상품 수정(name, description, manager, status 수정가능 // 이름중복 x)
+
+//request
+{
+	"name":"가나 초콜렛",
+	"description" : " 우유에 타먹으면 너무 맛있다. <판매완료>",
+	"manager" : "황달",
+	"status":"SOLD_OUT",
+	"password" : "1234"
+}                           
+
+
+##상품삭제 (/products:id )
+
+//request
+{
+	"password" : "1234"
 }
 
 
